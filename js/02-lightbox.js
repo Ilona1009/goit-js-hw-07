@@ -1,34 +1,34 @@
-import { galleryItems } from './gallery-items.js';
-// Change code below this line
+// import { galleryItems } from './gallery-items.js';
+// // Change code below this line
 
-console.log(galleryItems);
+// console.log(galleryItems);
 
-const divGallery = document.querySelector('.gallery');
+// const divGallery = document.querySelector('.gallery');
 
-divGallery. innerHTML = creatуGallery(galleryItems)
+// divGallery. innerHTML = creatуGallery(galleryItems)
 
-divGallery.addEventListener('click', onClickDivGallery);
-
-
-
-function creatуGallery (galleryItems){
-  return galleryItems
-  .map(({preview, original, description}) => {
-    return `
-<a class="gallery__item" href="${original}">
-<img class="gallery__image" src="${preview}" alt="${description}" />
-</a>
-`;
-}).join('');
-
-}
+// divGallery.addEventListener('click', onClickDivGallery);
 
 
-function onClickDivGallery(event){
-event.preventDefault();
-}
 
-var lightbox = new SimpleLightbox('.gallery a', { captionDelay:250, captionsData: "alt" });
+// function creatуGallery (galleryItems){
+//   return galleryItems
+//   .map(({preview, original, description}) => {
+//     return `
+// <a class="gallery__item" href="${original}">
+// <img class="gallery__image" src="${preview}" alt="${description}" />
+// </a>
+// `;
+// }).join('');
+
+// }
+
+
+// function onClickDivGallery(event){
+// event.preventDefault();
+// }
+
+// var lightbox = new SimpleLightbox('.gallery a', { captionDelay:250, captionsData: "alt" });
 
 
 
