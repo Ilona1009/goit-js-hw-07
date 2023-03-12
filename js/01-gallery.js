@@ -68,8 +68,8 @@ const addSelector = galleryItems.map(({ preview, original, description }) => {
   </a>
 </div>`;
 })
-const r = addSelector.join('');
-divGallery.innerHTML = r;
+.join('');
+divGallery.innerHTML = addSelector;
 
 divGallery.addEventListener('click', openModalImage)
 
@@ -81,14 +81,20 @@ function openModalImage (event) {
     return;
   }
 
-//   if (!event.target.classList.contains('gallery__image')){
-//   return;
-// }
-
   const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}" width="800" height="600">
 `);
   instance.show();
+
+  divGallery.addEventListener('keydown', closeModalEsc);
+
+  function closeModalEsc(event) {
+    if (event.code === 'Escape') {
+      instance.close();
+      divGallery.removeEventListener('keydown', closeModalEsc)
+      
+    }
+  }
 }
 
 
