@@ -1,16 +1,6 @@
-import { galleryItems } from './gallery-items.js';
-// Change code below this line
 
-const divGallery = document.querySelector('.gallery');
-
-const addSelector = galleryItems.map(({ preview, original, description }) => {
-  return `
-  <a class="gallery__item" href="${original}">
-  <img class="lazyload gallery__image " data-src="${preview}" alt="${description}" />
-</a>`;
-})
-.join('');
-divGallery.innerHTML = addSelector;
+const divGallery = document.querySelectorAll('img[data-src]');
+window.addEventListener('scroll', pageScroll)
 
 divGallery.addEventListener('click', openModalImage)
 
@@ -34,7 +24,11 @@ function openModalImage (event) {
 
     var lightbox = new SimpleLightbox('.gallery a', { captionDelay: 250, captionsData : 'alt' });
 
-
+function pageScroll() {
+  if (divGallery.length > 0) {
+    console.log( 'scroll')
+  }
+}
 
 
 
